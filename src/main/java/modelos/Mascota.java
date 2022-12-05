@@ -1,6 +1,5 @@
 package modelos;
 
-import java.io.Console;
 import java.time.LocalDateTime;
 
 public class Mascota {
@@ -16,6 +15,8 @@ public class Mascota {
   protected int nivelFelicidad;
   protected int nivelAburrimiento;
   protected String propietario;
+  protected int id;
+
 
   //metodo constructor que requiere dos datos al momento de la instanciacion (nombre y propietario)
   public Mascota(String nombre, String propietario) {
@@ -28,6 +29,7 @@ public class Mascota {
     setNivelFelicidad((int) (Math.random() * 100));
     setNivelAburrimiento((int) (Math.random() * 100));
     setFechaNacimiento(LocalDateTime.now());
+
   }
 
   //metodos de la instancia
@@ -77,6 +79,10 @@ public class Mascota {
 
   public String getPropietario() {
     return propietario;
+  }
+
+  public int getId() {
+    return this.id;
   }
 
   // setters
