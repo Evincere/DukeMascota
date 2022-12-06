@@ -1,4 +1,5 @@
 import enumeradores.AlmacenAlimentos;
+import enumeradores.EntretenimientosEnum;
 import modelos.DukeMascota;
 import persistencia.persistenceCollections.MascotaPersistenceUseList;
 
@@ -19,6 +20,13 @@ public class Main {
     System.out.println("antes de comer " + duke.getNivelEnergia());
     duke.comer(AlmacenAlimentos.ASADO);
     System.out.println("despues de comer " + duke.getNivelEnergia());
+
+    duke.jugar(EntretenimientosEnum.POKER);
+    duke.jugar(EntretenimientosEnum.PASEAR);
+    duke.jugar(EntretenimientosEnum.PASEAR);
+    duke.jugar(EntretenimientosEnum.PERINOLA);
+    duke.jugar(EntretenimientosEnum.BAILAR);
+    duke.jugar(EntretenimientosEnum.BAILAR);
 
 
 
