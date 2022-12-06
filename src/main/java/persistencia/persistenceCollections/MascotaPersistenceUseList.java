@@ -4,7 +4,7 @@ import java.util.List;
 import modelos.Mascota;
 import persistencia.IMascotaPersistence;
 
-public class IMascotaPersistenceUseList implements IMascotaPersistence {
+public class MascotaPersistenceUseList implements IMascotaPersistence {
 
 
   @Override

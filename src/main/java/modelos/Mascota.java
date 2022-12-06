@@ -1,5 +1,7 @@
 package modelos;
 
+import acciones.Alimentarse;
+import enumeradores.AlmacenAlimentos;
 import java.time.LocalDateTime;
 
 public class Mascota {
@@ -16,6 +18,7 @@ public class Mascota {
   protected int nivelAburrimiento;
   protected String propietario;
   protected int id;
+  protected Alimentarse alimentarse;
 
 
   //metodo constructor que requiere dos datos al momento de la instanciacion (nombre y propietario)
@@ -29,12 +32,14 @@ public class Mascota {
     setNivelFelicidad((int) (Math.random() * 100));
     setNivelAburrimiento((int) (Math.random() * 100));
     setFechaNacimiento(LocalDateTime.now());
-
+    this.alimentarse = new Alimentarse();
   }
 
   //metodos de la instancia
 
-  public void comer() {};
+  public void comer(AlmacenAlimentos alimento) {
+    alimentarse.ingerirAlimento(alimento, this);
+  };
   public void dormir() {};
   public void jugar() {};
 
@@ -103,11 +108,11 @@ public class Mascota {
     isLive = live;
   }
 
-  private void setNivelEnergia(int nivelEnergia) {
-    this.nivelEnergia = nivelEnergia;
+  public void setNivelEnergia(int nivelEnergia) {
+    this.nivelEnergia = Math.min(nivelEnergia, 100);
   }
 
-  private void setNivelHambre(int nivelHambre) {
+  public void setNivelHambre(int nivelHambre) {
     this.nivelHambre = nivelHambre;
   }
 

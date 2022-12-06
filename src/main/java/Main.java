@@ -1,11 +1,11 @@
+import enumeradores.AlmacenAlimentos;
 import modelos.DukeMascota;
-import modelos.Mascota;
-import persistencia.persistenceCollections.IMascotaPersistenceUseList;
+import persistencia.persistenceCollections.MascotaPersistenceUseList;
 
 public class Main {
 
   public static void main(String[] args) {
-    IMascotaPersistenceUseList persistence = new IMascotaPersistenceUseList();
+    MascotaPersistenceUseList persistence = new MascotaPersistenceUseList();
 
     DukeMascota duke = new DukeMascota("Duke-Merlina", "Semper");
     DukeMascota duke2 = new DukeMascota("Duke-Cordobes", "Semper");
@@ -16,9 +16,10 @@ public class Main {
     persistence.guardar(duke3);
     persistence.guardar(duke4);
 
-    for(Mascota mascota : persistence.getAllMascotas()) {
-      System.out.printf("Id : %d Mascota de nombre : %S\n", mascota.getId(), mascota.getNombre());
-    }
+    System.out.println("antes de comer " + duke.getNivelEnergia());
+    duke.comer(AlmacenAlimentos.ASADO);
+    System.out.println("despues de comer " + duke.getNivelEnergia());
+
 
 
 
