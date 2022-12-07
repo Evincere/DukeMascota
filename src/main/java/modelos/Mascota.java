@@ -2,9 +2,11 @@ package modelos;
 
 import acciones.Alimentarse;
 import acciones.Divertirse;
+import acciones.Dormir;
 import enumeradores.AlmacenAlimentos;
 import enumeradores.EntretenimientosEnum;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Mascota {
 
@@ -22,6 +24,8 @@ public class Mascota {
   protected int id;
   protected Alimentarse alimentarse;
   protected Divertirse divertirse;
+  public static LocalDateTime ultimoDescanso;
+  protected Dormir descansar;
 
 
   //metodo constructor que requiere dos datos al momento de la instanciacion (nombre y propietario)
@@ -29,7 +33,7 @@ public class Mascota {
     setNombre(nombre);
     setPropietario(propietario);
     setLive(true);
-    setNivelEnergia(100);
+    setNivelEnergia(20);
     setNivelHambre((int) (Math.random() * 100));
     setNivelCansancio((int) (Math.random() * 100));
     setNivelFelicidad((int) (Math.random() * 100));
@@ -37,6 +41,7 @@ public class Mascota {
     setFechaNacimiento(LocalDateTime.now());
     this.alimentarse = new Alimentarse();
     this.divertirse = new Divertirse();
+    this.descansar = new Dormir();
   }
 
   //metodos de la instancia
@@ -44,8 +49,8 @@ public class Mascota {
   public void comer(AlmacenAlimentos alimento) {
     alimentarse.ingerirAlimento(alimento, this);
   };
-  public void dormir() {
-
+  public void dormir(LocalTime tiempo) {
+    descansar.hacerDormir(tiempo, this);
   };
   public void jugar(EntretenimientosEnum entretenimiento) {
     divertirse.entretenerseCon(entretenimiento, this);
