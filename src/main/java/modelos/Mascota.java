@@ -3,6 +3,7 @@ package modelos;
 import acciones.Alimentarse;
 import acciones.Divertirse;
 import acciones.Dormir;
+import acciones.HacerPopo;
 import enumeradores.AlmacenAlimentos;
 import enumeradores.EntretenimientosEnum;
 import java.time.LocalDateTime;
@@ -26,6 +27,8 @@ public class Mascota {
   protected Divertirse divertirse;
   public static LocalDateTime ultimoDescanso;
   protected Dormir descansar;
+  protected int comidasIngeridas;
+  protected HacerPopo popo;
 
 
   //metodo constructor que requiere dos datos al momento de la instanciacion (nombre y propietario)
@@ -42,23 +45,28 @@ public class Mascota {
     this.alimentarse = new Alimentarse();
     this.divertirse = new Divertirse();
     this.descansar = new Dormir();
+    this.popo = new HacerPopo();
   }
 
   //metodos de la instancia
 
   public void comer(AlmacenAlimentos alimento) {
     alimentarse.ingerirAlimento(alimento, this);
-  };
+  }
+
   public void dormir(LocalTime tiempo) {
     descansar.hacerDormir(tiempo, this);
-  };
+  }
+
   public void jugar(EntretenimientosEnum entretenimiento) {
     divertirse.entretenerseCon(entretenimiento, this);
-  };
+  }
+
+  public void irAlBaño() {
+    popo.evacuar(this);
+  }
 
   // getters
-
-
   public String getNombre() {
     return nombre;
   }
@@ -103,6 +111,14 @@ public class Mascota {
     return this.id;
   }
 
+  public int getComidasIngeridas() {
+    return comidasIngeridas;
+  }
+
+  public HacerPopo getPopo() {
+    return popo;
+  }
+
   // setters
 
   private void setNombre(String nombre) {
@@ -122,7 +138,7 @@ public class Mascota {
   }
 
   public void setNivelEnergia(int nivelEnergia) {
-    this.nivelEnergia = Math.min(nivelEnergia, 100);
+    this.nivelEnergia = Math.min(Math.max(nivelEnergia, 0), 100);
   }
 
   public void setNivelHambre(int nivelHambre) {
@@ -143,6 +159,10 @@ public class Mascota {
 
   private void setPropietario(String propietario) {
     this.propietario = propietario;
+  }
+
+  public void setComidasIngeridas(int comidasIngeridas) {
+    this.comidasIngeridas = comidasIngeridas;
   }
 
 
