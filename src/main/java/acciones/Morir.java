@@ -2,6 +2,7 @@ package acciones;
 
 import java.time.LocalDateTime;
 import modelos.Mascota;
+import utils.RegistroCivilMascotas;
 
 public class Morir {
 
@@ -9,6 +10,7 @@ public class Morir {
     if (mascota.getNivelEnergia() == 0) {
       mascota.setLive(false);
       mascota.setFechaMuerte(LocalDateTime.now());
+      RegistroCivilMascotas.confeccionarActa(mascota);
       if (mascota.getCausaDeMuerte().isEmpty()) {
         determinarCausaDeMuerte(mascota);
       }

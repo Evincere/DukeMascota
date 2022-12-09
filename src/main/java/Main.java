@@ -1,6 +1,7 @@
 import enumeradores.AlmacenAlimentos;
 import modelos.DukeMascota;
 import persistencia.persistenceCollections.MascotaPersistenceUseList;
+import utils.RegistroCivilMascotas;
 
 public class Main {
 
@@ -15,6 +16,7 @@ public class Main {
     persistence.guardar(duke2);
     persistence.guardar(duke3);
     persistence.guardar(duke4);
+    RegistroCivilMascotas.confeccionarActa(duke);
 
     duke.comer(AlmacenAlimentos.ASADO);
     duke.comer(AlmacenAlimentos.PORORO);
@@ -27,5 +29,6 @@ public class Main {
     duke.comer(AlmacenAlimentos.PORORO);
     duke.comer(AlmacenAlimentos.PORORO);
     System.out.println(duke.getNivelEnergia());
+    RegistroCivilMascotas.guardarActa(duke);
   }
 }
