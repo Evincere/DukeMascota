@@ -1,6 +1,7 @@
 import enumeradores.AlmacenAlimentos;
 import modelos.DukeMascota;
 import persistencia.persistenceCollections.MascotaPersistenceUseList;
+import utils.RegistroCivilMascotas;
 
 public class Main {
 
@@ -26,5 +27,6 @@ public class Main {
     duke.comer(AlmacenAlimentos.PORORO);
     duke.comer(AlmacenAlimentos.PORORO);
     duke.comer(AlmacenAlimentos.PORORO);
+    RegistroCivilMascotas.guardarActa(duke);
   }
 }

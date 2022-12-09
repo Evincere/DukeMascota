@@ -31,7 +31,7 @@ public class RegistroCivilMascotas {
 
   public static void guardarActa(Mascota mascota) {
     System.out.println();
-    if (!mascota.isLive() & mascota.getActaDefuncion() != null) {
+    if (!mascota.isLive() && mascota.getActaDefuncion() != null) {
       try {
         output = new FileOutputStream(RUTA + mascota.getNombre() + "Defuncion" + ".txt");
         output.write(mascota.getActaDefuncion().getBytes());
@@ -49,7 +49,6 @@ public class RegistroCivilMascotas {
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
-
   }
 
   public static void leerActaNacimiento(Mascota mascota) {
