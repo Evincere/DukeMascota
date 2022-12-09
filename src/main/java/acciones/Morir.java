@@ -12,7 +12,6 @@ public class Morir {
       if (mascota.getCausaDeMuerte().isEmpty()) {
         determinarCausaDeMuerte(mascota);
       }
-
       System.out.println("Esta mascota ha fallecido en la fecha " + mascota.getFechaMuerte().toLocalDate());
       System.out.println("La causa de muerte fue :" + (mascota.getCausaDeMuerte()));
     }
