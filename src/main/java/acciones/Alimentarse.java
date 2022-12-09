@@ -13,12 +13,19 @@ public class Alimentarse {
       contabilizarComida(mascota);
       if (mascota.getPopo().tieneQueEvacuar(mascota)) {
         mascota.setNivelEnergia(mascota.getNivelEnergia() - 15);
-        System.out.println("Esta mascota necesita ir al baño");
+        Morir.checkStatusGeneral(mascota);
+        if (mascota.isLive()) {
+          System.out.println("Esta mascota necesita ir al baño");
+        }
+
       } else {
-        System.out.println("Esta mascota puede aguantarse de ir al baño");
+        Morir.checkStatusGeneral(mascota);
+        System.out.println("Esta mascota necesita ir al baño");
+
       }
     } else {
-      System.out.println("Lo siento, esta mascota no se encuentra operativa desde " + mascota.getFechaMuerte());
+      Morir.checkStatusGeneral(mascota);
+      System.out.println("Lo siento, esta mascota no se encuentra operativa desde " + mascota.getFechaMuerte().toLocalDate());
     }
   }
 

@@ -8,6 +8,7 @@ import enumeradores.AlmacenAlimentos;
 import enumeradores.EntretenimientosEnum;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Mascota {
 
@@ -30,13 +31,15 @@ public class Mascota {
   protected int comidasIngeridas;
   protected HacerPopo popo;
 
+  protected ArrayList<String> causaDeMuerte = new ArrayList<>();
+
 
   //metodo constructor que requiere dos datos al momento de la instanciacion (nombre y propietario)
   public Mascota(String nombre, String propietario) {
     setNombre(nombre);
     setPropietario(propietario);
     setLive(true);
-    setNivelEnergia(20);
+    setNivelEnergia(0);
     setNivelHambre((int) (Math.random() * 100));
     setNivelCansancio((int) (Math.random() * 100));
     setNivelFelicidad((int) (Math.random() * 100));
@@ -119,6 +122,10 @@ public class Mascota {
     return popo;
   }
 
+  public ArrayList<String> getCausaDeMuerte() {
+    return causaDeMuerte;
+  }
+
   // setters
 
   private void setNombre(String nombre) {
@@ -129,11 +136,11 @@ public class Mascota {
     this.fechaNacimiento = fechaNacimiento;
   }
 
-  private void setFechaMuerte(LocalDateTime fechaMuerte) {
+  public void setFechaMuerte(LocalDateTime fechaMuerte) {
     this.fechaMuerte = fechaMuerte;
   }
 
-  private void setLive(boolean live) {
+  public void setLive(boolean live) {
     isLive = live;
   }
 
@@ -163,6 +170,10 @@ public class Mascota {
 
   public void setComidasIngeridas(int comidasIngeridas) {
     this.comidasIngeridas = comidasIngeridas;
+  }
+
+  public void setCausaDeMuerte(String causaDeMuerte) {
+    this.causaDeMuerte.add(causaDeMuerte);
   }
 
 
