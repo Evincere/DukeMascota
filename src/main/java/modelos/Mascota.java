@@ -9,6 +9,7 @@ import enumeradores.EntretenimientosEnum;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import utils.RegistroCivilMascotas;
 
 public class Mascota {
 
@@ -30,9 +31,9 @@ public class Mascota {
   protected Dormir descansar;
   protected int comidasIngeridas;
   protected HacerPopo popo;
-
   protected ArrayList<String> causaDeMuerte = new ArrayList<>();
-
+  protected String actaDefuncion;
+  protected String actaNacimiento;
 
   //metodo constructor que requiere dos datos al momento de la instanciacion (nombre y propietario)
   public Mascota(String nombre, String propietario) {
@@ -49,6 +50,7 @@ public class Mascota {
     this.divertirse = new Divertirse();
     this.descansar = new Dormir();
     this.popo = new HacerPopo();
+    RegistroCivilMascotas.confeccionarActa(this);
   }
 
   //metodos de la instancia
@@ -126,7 +128,15 @@ public class Mascota {
     return causaDeMuerte;
   }
 
-  // setters
+  public String getActaDefuncion() {
+    return actaDefuncion;
+  }
+
+  public String getActaNacimiento() {
+    return actaNacimiento;
+  }
+
+// setters
 
   private void setNombre(String nombre) {
     this.nombre = nombre;
@@ -176,5 +186,12 @@ public class Mascota {
     this.causaDeMuerte.add(causaDeMuerte);
   }
 
+  public void setActaDefuncion(String actaDefuncion) {
+    this.actaDefuncion = actaDefuncion;
+  }
+
+  public void setActaNacimiento(String actaNacimiento) {
+    this.actaNacimiento = actaNacimiento;
+  }
 
 }
