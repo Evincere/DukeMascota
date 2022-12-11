@@ -1,7 +1,7 @@
-import enumeradores.AlmacenAlimentos;
+import java.sql.Connection;
 import modelos.DukeMascota;
-import persistencia.persistenceCollections.MascotaPersistenceUseList;
-import utils.RegistroCivilMascotas;
+import persistencia.collections.MascotaPersistenceUseList;
+import persistencia.mysql.MySQLConnection;
 
 public class Main {
 
@@ -17,16 +17,30 @@ public class Main {
     persistence.guardar(duke3);
     persistence.guardar(duke4);
 
-    duke.comer(AlmacenAlimentos.ASADO);
-    duke.comer(AlmacenAlimentos.PORORO);
-    duke.comer(AlmacenAlimentos.PORORO);
-    duke.comer(AlmacenAlimentos.PORORO);
-    duke.comer(AlmacenAlimentos.PORORO);
-    duke.comer(AlmacenAlimentos.PORORO);
-    duke.comer(AlmacenAlimentos.PORORO);
-    duke.comer(AlmacenAlimentos.PORORO);
-    duke.comer(AlmacenAlimentos.PORORO);
-    duke.comer(AlmacenAlimentos.PORORO);
-    RegistroCivilMascotas.guardarActa(duke);
+    //    duke.comer(AlmacenAlimentos.ASADO);
+    //    duke.comer(AlmacenAlimentos.PORORO);
+    //    duke.comer(AlmacenAlimentos.PORORO);
+    //    duke.comer(AlmacenAlimentos.PORORO);
+    //    duke.comer(AlmacenAlimentos.PORORO);
+    //    duke.comer(AlmacenAlimentos.PORORO);
+    //    duke.comer(AlmacenAlimentos.PORORO);
+    //    duke.comer(AlmacenAlimentos.PORORO);
+    //    duke.comer(AlmacenAlimentos.PORORO);
+    //    duke.comer(AlmacenAlimentos.PORORO);
+    //    RegistroCivilMascotas.guardarActa(duke);
+
+    MySQLConnection conexion = new MySQLConnection();
+    Connection connection = conexion.establecerConexion();
+
+    conexion.cerrarConexion(connection);
+
+//    MascotaPersistenceUseMySQL persistenceUseBDMySQL = new MascotaPersistenceUseMySQL();
+//
+//    persistenceUseBDMySQL.guardar(duke);
+//    persistenceUseBDMySQL.guardar(duke2);
+//    persistenceUseBDMySQL.guardar(duke3);
+//    persistenceUseBDMySQL.guardar(duke4);
+//    Mascota mascota = persistenceUseBDMySQL.getMascota(1);
+//    System.out.println(mascota.getId() + " " + mascota.getFechaNacimiento());
   }
 }

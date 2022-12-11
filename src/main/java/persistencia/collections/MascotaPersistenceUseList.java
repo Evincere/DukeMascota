@@ -1,4 +1,4 @@
-package persistencia.persistenceCollections;
+package persistencia.collections;
 
 import java.util.List;
 import modelos.Mascota;
@@ -20,7 +20,7 @@ public class MascotaPersistenceUseList implements IMascotaPersistence {
   @Override
   public Mascota getMascota(String nombre) {
     for (Mascota elemento : bdMascotas) {
-      if(elemento.getNombre().equals(nombre)) {
+      if (elemento.getNombre().equals(nombre)) {
         return elemento;
       }
     }

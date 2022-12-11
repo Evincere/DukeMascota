@@ -36,11 +36,14 @@ public class Mascota {
   protected String actaNacimiento;
 
   //metodo constructor que requiere dos datos al momento de la instanciacion (nombre y propietario)
+  public Mascota() {
+  }
+
   public Mascota(String nombre, String propietario) {
     setNombre(nombre);
     setPropietario(propietario);
     setLive(true);
-    setNivelEnergia(0);
+    setNivelEnergia(50);
     setNivelHambre((int) (Math.random() * 100));
     setNivelCansancio((int) (Math.random() * 100));
     setNivelFelicidad((int) (Math.random() * 100));
@@ -138,11 +141,16 @@ public class Mascota {
 
 // setters
 
-  private void setNombre(String nombre) {
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public void setNombre(String nombre) {
     this.nombre = nombre;
   }
 
-  private void setFechaNacimiento(LocalDateTime fechaNacimiento) {
+  public void setFechaNacimiento(LocalDateTime fechaNacimiento) {
     this.fechaNacimiento = fechaNacimiento;
   }
 
@@ -162,11 +170,11 @@ public class Mascota {
     this.nivelHambre = nivelHambre;
   }
 
-  private void setNivelCansancio(int nivelCansancio) {
+  public void setNivelCansancio(int nivelCansancio) {
     this.nivelCansancio = nivelCansancio;
   }
 
-  private void setNivelFelicidad(int nivelFelicidad) {
+  public void setNivelFelicidad(int nivelFelicidad) {
     this.nivelFelicidad = nivelFelicidad;
   }
 
@@ -174,7 +182,7 @@ public class Mascota {
     this.nivelAburrimiento = Math.max(nivelAburrimiento, 0);
   }
 
-  private void setPropietario(String propietario) {
+  public void setPropietario(String propietario) {
     this.propietario = propietario;
   }
 
