@@ -1,7 +1,3 @@
-import java.sql.Connection;
-import modelos.DukeMascota;
-import persistencia.collections.MascotaPersistenceUseList;
-import persistencia.mysql.MySQLConnection;
 
 public class Main {
 
